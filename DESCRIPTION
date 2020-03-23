@@ -1,0 +1,21 @@
+Package: IndlaesOgGemDB
+Type: Package
+Title: Indlæser data fra database
+Version: 0.1.0
+Author: Kübranur Sahan <kuebranur.sahan@regionh.dk>
+Maintainer: Kübranur Sahan <kuebranur.sahan@regionh.dk>
+Description: Pakken indeholder funktioner, som bruges til at indlæse datasæt fra database.
+    Pakken indeholder en funktion, der giver mulighed for både indlæse og eventuelt formatere datasæt fra en database. 
+    Ved indlæsning af tidligere gemt data, giver funktionen også mulighed for at sammenligne den indlæste datasæt med den gemte datasæt ud fra oplysninger tidligere gemt (aggregeret) oplysninger om den gemte datasæt.
+    På denne måde kan man tjekke om en tidligere gemt data er indlæst korrekt.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.6.0)
+Imports:
+    dplyr (>= 0.8.3),
+    reshape2 (>= 1.4.3),
+    Formateringsfunktioner (>= 0.1.0),
+    DBI (>= 1.1.0),
+    odbc (>= 1.2.1)
+RoxygenNote: 7.0.2

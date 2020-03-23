@@ -1,0 +1,6 @@
+exportPattern("^[[:alpha:]]+")
+import(dplyr)
+importFrom(reshape2,melt)
+import(Formateringsfunktioner)
+import(DBI)
+import(odbc)
