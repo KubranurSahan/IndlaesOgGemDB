@@ -40,10 +40,11 @@ hentDatasaetFraDatabase<-function(schemaNavn,
                                   hentForSidsteUdtraeksDatoTidVaerdi = FALSE,
                                   databaseNavn = minDatabase,
                                   serverNavn = minServer,
-                                  driverNavn = minDriver){
+                                  driverNavn = minDriver,
+                                  conEncoding = "UTF-8"){
 
   # Opretter forbindelsen
-  forb <- dbConnect(odbc(), Driver = driverNavn, Server = serverNavn, Database = databaseNavn, encoding = "latin1")
+  forb <- dbConnect(odbc(), Driver = driverNavn, Server = serverNavn, Database = databaseNavn, encoding = conEncoding)
 
   # Henter datasættet
   datasaet <- dbReadTable(forb, Id(schema = schemaNavn, table = datasaetNavn))

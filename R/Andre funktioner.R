@@ -23,10 +23,11 @@
 tjekOmSchemaEksistererIDb <- function(schemaNavn,
                                       databaseNavn = minDatabase,
                                       serverNavn = minServer,
-                                      driverNavn = minDriver){
+                                      driverNavn = minDriver,
+                                      conEncoding = "UTF-8"){
 
   # Opretter forbindelsen
-  forb <- dbConnect(odbc(), Driver = driverNavn, Server = serverNavn, Database = databaseNavn, encoding = "latin1")
+  forb <- dbConnect(odbc(), Driver = driverNavn, Server = serverNavn, Database = databaseNavn, encoding = conEncoding)
 
   # Henter en liste over schema'er i databasen (både tomme og ikke tomme)
   schemaIDatabasen <- dbGetQuery(forb, "select SCHEMA_NAME from INFORMATION_SCHEMA.SCHEMATA")
@@ -68,10 +69,11 @@ tjekOmTabelEksistererIDb <- function(tabelNavn,
                                      schemaNavn,
                                      databaseNavn = minDatabase,
                                      serverNavn = minServer,
-                                     driverNavn = minDriver){
+                                     driverNavn = minDriver,
+                                     conEncoding = "UTF-8"){
 
   # Opretter forbindelsen
-  forb <- dbConnect(odbc(), Driver = driverNavn, Server = serverNavn, Database = databaseNavn, encoding = "latin1")
+  forb <- dbConnect(odbc(), Driver = driverNavn, Server = serverNavn, Database = databaseNavn, encoding = conEncoding)
 
   # Henter en liste over schema'er og tabeller i databasen
   tabellerIDatabasen <- dbGetQuery(forb, "select TABLE_SCHEMA,TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_TYPE = 'BASE TABLE'")

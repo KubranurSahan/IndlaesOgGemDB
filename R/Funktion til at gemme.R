@@ -28,7 +28,8 @@ gemDatasaetIDb <- function(datasaet,
                            datasaetNavn = NA,
                            databaseNavn = minDatabase,
                            serverNavn = minServer,
-                           driverNavn = minDriver){
+                           driverNavn = minDriver,
+                           conEncoding = "UTF-8"){
 
   # Definere navnet på datasættet, hvis denne ikke er angivet
   if(is.na(datasaetNavn)){
@@ -44,7 +45,7 @@ gemDatasaetIDb <- function(datasaet,
   }
 
   # Opretter forbindelsen
-  forb <- dbConnect(odbc(), Driver = driverNavn, Server = serverNavn, Database = databaseNavn, encoding = "latin1")
+  forb <- dbConnect(odbc(), Driver = driverNavn, Server = serverNavn, Database = databaseNavn, encoding = conEncoding)
 
   # Henter en liste over schema'er i databasen (både tomme og ikke tomme)
   schemaIDatabasen <- dbGetQuery(forb, "select SCHEMA_NAME from INFORMATION_SCHEMA.SCHEMATA")
