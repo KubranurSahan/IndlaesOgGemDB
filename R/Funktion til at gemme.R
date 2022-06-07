@@ -62,7 +62,7 @@ gemDatasaetIDb <- function(datasaet,
   }
 
   # Gemmer datasættet i databasen under projekt navnet
-  dbWriteTable(forb, Id(schema = schemaNavn, table = datasaetNavn), datasaet, append = TRUE)
+  dbWriteTable(forb, Id(schema = schemaNavn, table = datasaetNavn), datasaet, append = TRUE, batch_rows = min(10000, nrow(datasaet)))
 
   # Afbryder og fjerner forbindelsen
   dbDisconnect(forb)
